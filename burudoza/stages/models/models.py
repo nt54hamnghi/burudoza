@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+
 from burudoza.directories import CONTENT_DIR
 from burudoza.stages.models.config.setup import (
     SetupFunction,
@@ -9,8 +10,6 @@ from burudoza.stages.models.config.setup import (
     gradient_boosting_setup,
     random_forest_setup,
 )
-
-
 from burudoza.utils.display import (
     display_content,
     display_header,

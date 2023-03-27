@@ -7,8 +7,8 @@ from sklearn.ensemble import (
     RandomForestRegressor,
 )
 from streamlit.delta_generator import DeltaGenerator
-from burudoza.stages.models.config.config import ModelConfig, WidgetType
 
+from burudoza.stages.models.config.config import ModelConfig, WidgetType
 from burudoza.stages.models.config.extra_trees_config import ExtraTreesConfig
 from burudoza.stages.models.config.gradient_boosting import (
     GradientBoostingConfig,
