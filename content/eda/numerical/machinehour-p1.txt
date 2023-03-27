@@ -1,0 +1,3 @@
+This variable is the current usage in hours of a machine.
+
+The violin plot (on the left) shows that most machines have relatively low usage, but some have significantly high hours. This shape makes it hard to analyze the usage hour; a feasible solution is to convert it using a logarithmic function. A natural-log transformation would help narrow down the range and thus might help reveal valuable information. Additionally, the violin's shape suggests that the variable might follow a log-normal distribution, so it is appropriate to transform it with a log function. Finally, the post-transformed violin plot (on the right) justifies our speculation; the shape looks almost normal.

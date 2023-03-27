@@ -1,0 +1,7 @@
+The feature is the unique numerical identifier of a machine, and one bulldozer can be listed for auction multiple times.
+
+The scatter plot of the price versus Machine ID (the left chart) looks random. The price range remains the same for all values of the ID. This behavior is understandable; a unique ID should not affect the target variable.
+
+However, how many times a machine was sold could be a good indicator. The scatter plot on the right displays the relationship between a bulldozer's price and sale counts. A machine's price drops if people purchase it over and over again.
+
+The counts are scaled so that they are within 0 and 1. Since we are counting, a machine can appear 30 times in the training data but only 2 or 3 times in the validation data. This difference is due to the difference in size between the two sets. Scaling compensates for the difference and ensures the data stay comparable.

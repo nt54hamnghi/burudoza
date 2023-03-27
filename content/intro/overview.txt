@@ -1,0 +1,7 @@
+This web application provides an interactive environment to experiment with different stages in a Data Science pipeline, including Explanatory Data Analysis (EDA), Feature Engineering, and Modeling. Also, each stage will have its respective page, and you can navigate between the pages using the sidebar accessible from the top left corner of this page.
+
+We need a data set and an objective to get started. The data we will be using is a collection of bulldozer auction sales. Each row represents a sale and contains various information such as identifier, specification, date of purchase, etc. It comes in two partitions: a training set and a validation set. The former includes sales from the past to 2011, while the latter was in 2012. The complete data is available at: <https://www.kaggle.com/c/bluebook-for-bulldozers/data>.
+
+Our goals are:
+* Analyze the data and identify variables having exciting relationships with the price.
+* Build a machine learning model to predict future auction prices.

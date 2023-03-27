@@ -1,0 +1,5 @@
+`UsageBand` describes the usage of a machine compared to the model line's average (`fiBaseModel`). The possible values are "high," "medium," and "low." For example, a model-X machine with "low" usage means its usage is below the average of all bulldozers of model X.
+
+The box plot (on the left) shows that as usage moves from "low" to "medium" and then "high," the mean sale price increase accordingly. 
+
+However, as shown in the histogram, most bulldozers have a "medium" UsageBand, and when the log of the sale price is above 10, these machines take up the highest proportion. 

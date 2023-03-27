@@ -1,0 +1,3 @@
+As its name suggests, this feature describes the drive system. Possible values are "Two Wheel Drive," "Four Wheel Drive," "All Wheel Drive," or "No." The value "No" means the drive system is anything other than the three mentioned types.
+
+As expected, all-wheel-drive bulldozers are the most expensive; their mean price is higher than all other types. However, it's apparent from the histogram that the number of all-wheel-drive bulldozers is relatively low, making them the least reliable group. The "No" group is next in price, and its count is also large enough. In contrast, two-wheel-drive machines would be the most affordable; the mean price is even below the middle point of the price scale. 

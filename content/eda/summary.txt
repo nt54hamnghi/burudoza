@@ -1,0 +1,6 @@
+The above table contains summary for only numerical features.
+There are a few abnormalities:
+* The range of `SalePrice` seems to be wide (from `4,750.0` to `142,000.0`). The max are far from the 75% quantile, so is the min from the 25% quantile.
+* For `YearMade`, the min is `1000`, while the most of the samples are from `1985` and above. It means that missing values of `YearMade` is encoded as `1000`.
+* `MachineHoursCurrentMeter` suffers the same issue. Almost 50% of samples are `0` (from the min to the 50% quantile), signalling that the value 0 is indicate missing values.
+* `MachineID`, `ModelID`, `datasource`, `auctioneerID` should be considered as categorical features. However, `MachineID` and `ModelID` have a high cardinality (count of unique values). Therefore, we would introduce unwanted noise if we use them in their raw form because some categories might appear only one or two times. With that said, we should condense the cardinality first.

@@ -1,0 +1,4 @@
+* The first column is the variable names.
+* The second and third columns are the corresponding importances and ranks.
+* The fourth columns is the normalized cummulative importance.
+* It's cut off at 95%, which means the listed variables contribute to 95% of all the predicting power.

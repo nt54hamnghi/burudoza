@@ -1,0 +1,2 @@
+* A log-normal distribution models situations where a small proportion of samples deviate further from the mean to only one side. A good example is people's income. The people's salary should be around the national level, but there are some millionaires or billionaires whose earnings are exponentially more significant than the average.
+* A violin plot is a variant of a histogram. It's a KDE histogram mirrored over a horizontal line (KDE stands for Kernal Density Estimation). Therefore, it also displays the distribution of a variable.

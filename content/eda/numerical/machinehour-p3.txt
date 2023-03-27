@@ -1,0 +1,1 @@
+The scatter plot of the log of hour operation and the sale price shows an interesting pattern. It seems like bulldozers have the highest price if they have moderate usage. Over-operated machines are less likely to be profitable, and so are the rarely used ones.

@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "burudoza"
+version = "0.1.0"
+description = "Interactive Web Application to Explore Tree-based Machine Learning Models"
+authors = ["nt54hamnghi <hamnghi250699@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11"
+numpy = "^1.24.2"
+pandas = "^1.5.3"
+scikit-learn = "^1.2.2"
+plotly = "^5.13.1"
+streamlit = "^1.20.0"
+colormap = "^1.0.4"
+easydev = "^0.12.1"
+seaborn = "^0.12.2"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.1.1"
+black = "^23.1.0"
+types-decorator = "^5.1.8.3"
+flake8 = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.11"
+# output
+pretty = true
+# include
+files = ["burudoza/**/*.py"]
+# exclude
+exclude = ["test/**/*.py"]
+# optional
+no_implicit_optional = true
+# function defs
+check_untyped_defs = true 
+allow_untyped_defs = true
+allow_incomplete_defs = true
+allow_any_explicit = true
+# warning
+warn_unreachable = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+# strictness
+strict_equality = true
+
+
+[[tool.mypy.overrides]]
+module = [
+    "pandas.*",
+    "numpy.*",
+    "plotly.*",
+    "seaborn.*",
+    "colorama.*",
+    "sklearn.*",
+    "colormap.*",
+]
+ignore_missing_imports = true

@@ -1,0 +1,8 @@
+This variable shows the type of enclosure of the equipment. ROPS stands for Roll Over Protection Structure, a protection structure that goes over the driver seat to cover the machine operator. The four types are:
+
+* NO ROPS - No enclosure
+* OROPS - Open ROPS (Without protection glass)
+* EROPS - Enclosed ROPS (With glass)
+* EROPS W AC -  EROPS with Air Conditioner
+
+The box plots suggest that the mean price increases if a machine has a fully enclosed cabin. This price goes even higher if it's equipped with an air conditioner. The histogram reflects the same points. The majority of expensive bulldozers come equipped with an AC.

@@ -1,0 +1,5 @@
+The plot of the mean price grouped by the manufactured year (`YearMade`) indicates that, except for the 1920-1960 timeframe, the more recently a machine is produced, the higher its expected sale price. 
+
+However, the average price suddenly dropped from 2008 moving forwards, potentially due to the 2008 financial crisis. 
+
+Also, several abnormal spikes that appeared from 1920 to 1960 are attributable to the lack of data points. The boxplot helps justify this; the issues between 1920 and 1960 are all outliers.
