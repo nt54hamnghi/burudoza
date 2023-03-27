@@ -1,13 +1,15 @@
-from burudoza.utils import graph
-from burudoza.utils.display import (
+from . import graph
+
+from .display import (
     display_content,
     display_header,
     display_metric,
     display_note,
     styleit,
 )
-from burudoza.utils.evaluate import evalutate, get_feature_importances
-from burudoza.utils.graph import (
+
+from .evaluate import evalutate, get_feature_importances
+from .graph import (
     BLUE_CMAP,
     AxesLabel,
     TraceContainer,
@@ -17,7 +19,7 @@ from burudoza.utils.graph import (
     render,
     subplots,
 )
-from burudoza.utils.helper import create_logger, read_json, timeit
+from .helper import create_logger, read_json, timeit
 
 __all__ = (
     "graph",

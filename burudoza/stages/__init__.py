@@ -1,6 +1,6 @@
-from burudoza.stages.eda import eda
-from burudoza.stages.intro import intro
-from burudoza.stages.models import models
-from burudoza.stages.stages import STAGES, Stage
+from .eda import eda
+from .intro import intro
+from .models import models
+from .stages import Stage, STAGES
 
 __all__ = ("intro", "models", "eda", "Stage", "STAGES")
