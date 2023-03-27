@@ -32,14 +32,18 @@ def _preload():
 
 def setup():
     st.set_page_config(page_title="Burudoza", layout="wide")
-    st.title("Bulldozers Auction Price Predicting")
+    st.title(
+        "Explore Tree-based Machine Learning Models with Bulldozers Auction Data"
+    )
 
 
 def main():
-    stage = st.sidebar.selectbox("Select Stage", options=STAGES) or "_"
-
     # load data
     raw_train, (X_train, X_test, y_train, y_test) = _preload()
+
+    # sidebar
+    with st.sidebar:
+        stage = st.selectbox("Select Stage", options=STAGES) or "_"
 
     # match page/stage
     match stage.lower():
