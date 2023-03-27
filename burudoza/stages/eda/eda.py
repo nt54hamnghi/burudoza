@@ -5,7 +5,8 @@ import pandas as pd
 import streamlit as st
 
 from burudoza.directories import CONTENT_DIR
-from burudoza.stages.eda import categorical, numerical
+from burudoza.stages.eda.categorical_eda import categorical
+from burudoza.stages.eda.numerical_eda import numerical
 from burudoza.utils.display import (
     display_content,
     display_header,
