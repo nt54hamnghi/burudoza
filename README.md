@@ -1,6 +1,8 @@
 ﻿# Introduction
 
-The main objective of this project is to analyze and build a machine-learning model capable of predicting the price for auction sales of industrial bulldozers. The data includes information about bulldozers, like their model, capacity, technical measurements, sale date, etc. It is available at: <https://www.kaggle.com/c/bluebook-for-bulldozers/data>
+Interactive Web Application is live at: <http://app.burudoza.com>
+
+The project aims at analyzing and building a machine-learning model capable of predicting auction sales of industrial bulldozers. The data includes information about bulldozers, including model, capacity, measurements, date, etc. It is available on [Kaggle](https://www.kaggle.com/c/bluebook-for-bulldozers/data)
 
 ## Stage 1: Data Preprocessing
 
@@ -76,7 +78,3 @@ Using the feature set filtered from the previous stage, we will plot different k
 ### SHAP values
 
 Shapley Additive exPlanation, abbreviated as SHAP, is an algorithm used to reverse-engineer and explain the model's output. The interpretability of SHAP also helps to pinpoint the patterns not revealed by conventional graphs. The SHAP paper is at: <https://arxiv.org/abs/1705.07874>
-
-## Stage 4: Web-based Interactive Report
-
-Examples can be found at: <https://streamlit.io/gallery>
