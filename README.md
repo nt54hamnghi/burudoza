@@ -1,6 +1,6 @@
 ﻿# Introduction
 
-Interactive Web Application is live at: <http://app.burudoza.com>
+Interactive Web Application is live at: <https://app.burudoza.com>
 
 The project aims at analyzing and building a machine-learning model capable of predicting auction sales of industrial bulldozers. The data includes information about bulldozers, including model, capacity, measurements, date, etc. It is available on [Kaggle](https://www.kaggle.com/c/bluebook-for-bulldozers/data)
 
