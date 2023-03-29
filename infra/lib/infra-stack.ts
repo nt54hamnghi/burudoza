@@ -53,12 +53,12 @@ export class BurudozaStack extends cdk.Stack {
 			{
 				assignPublicIp: true,
 				cluster,
-				cpu: 2048, // 2 vCPU
+				cpu: 4096, // 4 vCPU
 				taskImageOptions: {
 					image,
 					containerPort: 8501,
 				},
-				memoryLimitMiB: 4096, // 4 BG of RAM
+				memoryLimitMiB: 8192, // 8 BG of RAM
 				publicLoadBalancer: true,
 				certificate: certificate,
 				listenerPort: 443, // default 80, 433 is for HTTPS
