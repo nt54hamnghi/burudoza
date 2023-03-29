@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from streamlit_option_menu import option_menu
 
 from burudoza.directories import DATA_DIR
 from burudoza.stages import eda, intro, models
@@ -43,7 +44,13 @@ def main():
 
     # sidebar
     with st.sidebar:
-        stage = st.selectbox("Select Stage", options=STAGES) or "_"
+        # stage = st.selectbox("Select Stage", options=STAGES) or "_"
+        stage = option_menu(
+            menu_title="Stage",
+            menu_icon="list",
+            options=list(STAGES),
+            icons=["caret-right", "graph-up-arrow", "cpu"],
+        )
 
     # match page/stage
     match stage.lower():

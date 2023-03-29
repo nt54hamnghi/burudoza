@@ -797,6 +797,17 @@ watchdog = {version = "*", markers = "platform_system != \"Darwin\""}
 snowflake = ["snowflake-snowpark-python"]
 
 [[package]]
+name = "streamlit-option-menu"
+version = "0.3.2"
+description = "streamlit-option-menu is a simple Streamlit component that allows users to select a single item from a list of options in a menu."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+streamlit = ">=0.63"
+
+[[package]]
 name = "tenacity"
 version = "8.2.2"
 description = "Retry code until it succeeds"
@@ -931,7 +942,7 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "1.1"
 python-versions = "3.11.*"
-content-hash = "69e775331bd2e135605a38df743429619fe8b1feaffd18b25bccc03baf8dc1e1"
+content-hash = "12413e6202868eef60816bec19a4f53d5c022972be65824f9df1fb6d61e23af3"
 
 [metadata.files]
 altair = [
@@ -1749,6 +1760,10 @@ smmap = [
 streamlit = [
     {file = "streamlit-1.20.0-py2.py3-none-any.whl", hash = "sha256:41a544b8dc618ee65726da3ac76149c5b2bf3da7bde6d50625c4f7ec95e6c9e8"},
     {file = "streamlit-1.20.0.tar.gz", hash = "sha256:f6e257e033a2532ce9b37c425717a4e885fa4d0e339fa5dcdbbda8d75ec191e9"},
+]
+streamlit-option-menu = [
+    {file = "streamlit-option-menu-0.3.2.tar.gz", hash = "sha256:69d1aef6f30f83f29eda3dc9667733bc2e28cd640eb17b4b6ca315f633484c52"},
+    {file = "streamlit_option_menu-0.3.2-py3-none-any.whl", hash = "sha256:0b7eae3ffdb0276c81d15750465c72957d57d2f766cb027c586d053519731178"},
 ]
 tenacity = [
     {file = "tenacity-8.2.2-py3-none-any.whl", hash = "sha256:2f277afb21b851637e8f52e6a613ff08734c347dc19ade928e519d7d2d8569b0"},

@@ -16,6 +16,7 @@ streamlit = "^1.20.0"
 colormap = "^1.0.4"
 easydev = "^0.12.1"
 seaborn = "^0.12.2"
+streamlit-option-menu = "^0.3.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -61,5 +62,6 @@ module = [
     "colorama.*",
     "sklearn.*",
     "colormap.*",
+    "streamlit_option_menu.*"
 ]
 ignore_missing_imports = true
