@@ -48,7 +48,7 @@ def main():
         stage = option_menu(
             menu_title="Stage",
             menu_icon="list",
-            options=list(STAGES),
+            options=STAGES,
             icons=["caret-right", "graph-up-arrow", "cpu"],
         )
 

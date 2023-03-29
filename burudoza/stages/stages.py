@@ -7,4 +7,4 @@ class Stage(StrEnum):
     MODELS = auto()
 
 
-STAGES = Stage.__members__
+STAGES = Stage._member_names_

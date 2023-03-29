@@ -1,3 +1,5 @@
+from enum import StrEnum, auto
+import select
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -15,29 +17,33 @@ from burudoza.utils.display import (
 EDA_DIR = CONTENT_DIR / "eda"
 
 
+class Option(StrEnum):
+    Overview = auto()
+    Numerical = auto()
+    Categorical = auto()
+
+
+OPTIONS = Option._member_names_
+
+
 def run(dataframe: pd.DataFrame) -> None:
     st.header("Explanatory Data Analysis")
 
-    display_note(
-        "This analysis use a random subset with 45,000 rows from the original data set."
-    )
-
     with st.container():
-        first, second, third = st.tabs(
-            ["Overview", "Numerical", "Categorical"]
-        )
+        selected = st.selectbox("Option", options=OPTIONS) or "_"
 
-        with first:
-            data = prepare(dataframe, False)
-            overview(data)
-
-        with second:
-            data = prepare(dataframe)
-            numerical(data)
-
-        with third:
-            data = prepare(dataframe)
-            categorical(data)
+        match selected.lower():
+            case Option.Overview:
+                data = prepare(dataframe, False)
+                overview(data)
+            case Option.Numerical:
+                data = prepare(dataframe)
+                numerical(data)
+            case Option.Categorical:
+                data = prepare(dataframe)
+                categorical(data)
+            case _:
+                raise KeyError(f"Invalid option {selected}")
 
 
 def overview(dataframe: pd.DataFrame):
@@ -66,6 +72,9 @@ def prepare(dataframe: pd.DataFrame, sample: bool = True) -> pd.DataFrame:
     )
 
     if sample:
+        display_note(
+            "This analysis use a random subset with 45,000 rows from the original data set."
+        )
         return dataframe.sample(frac=0.125, replace=True)
 
     return dataframe
