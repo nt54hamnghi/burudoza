@@ -1,8 +1,10 @@
 import * as cdk from 'aws-cdk-lib';
+import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { DockerImageAsset } from 'aws-cdk-lib/aws-ecr-assets';
 import * as ecs from 'aws-cdk-lib/aws-ecs';
 import * as ecsPatterns from 'aws-cdk-lib/aws-ecs-patterns';
+import * as route53 from 'aws-cdk-lib/aws-route53';
 import { Construct } from 'constructs';
 import { join } from 'path';
 
@@ -23,6 +25,22 @@ export class BurudozaStack extends cdk.Stack {
 			vpc: vpc,
 		});
 
+		// Set up the hosted zone
+		const domainName = 'burudoza.com';
+		// Import an existing hosted Zone
+		const hostedZone =
+			route53.PublicHostedZone.fromPublicHostedZoneAttributes(
+				this,
+				genid('hostedZone'),
+				{ zoneName: domainName, hostedZoneId: 'Z034277728R677UN19XB1' }
+			);
+
+		const certificate = acm.Certificate.fromCertificateArn(
+			this,
+			genid('certificate'),
+			process.env.ACM_ARN ?? ''
+		);
+
 		const asset = new DockerImageAsset(this, genid('dockerAsset'), {
 			directory: join(__dirname, '../..'),
 		});
@@ -34,22 +52,19 @@ export class BurudozaStack extends cdk.Stack {
 			genid('fargateService'),
 			{
 				assignPublicIp: true,
-				cluster: cluster,
+				cluster,
 				cpu: 2048, // 2 vCPU
 				taskImageOptions: {
-					image: image,
+					image,
 					containerPort: 8501,
 				},
 				memoryLimitMiB: 4096, // 4 BG of RAM
 				publicLoadBalancer: true,
+				certificate: certificate,
+				listenerPort: 443, // default 80, 433 is for HTTPS
+				domainName: `app.${domainName}`,
+				domainZone: hostedZone,
 			}
 		);
 	}
 }
-
-// import * as ecr from 'aws-cdk-lib/aws-ecr';
-// const repo = ecr.Repository.fromRepositoryName(
-// 	this,
-// 	genid('repository'),
-// 	'burudoza'
-// );
