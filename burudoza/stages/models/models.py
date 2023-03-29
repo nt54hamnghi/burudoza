@@ -12,7 +12,6 @@ from burudoza.stages.models.config.setup import (
 )
 from burudoza.utils.display import (
     display_content,
-    display_header,
     display_metric,
     display_note,
     styleit,
@@ -45,8 +44,8 @@ def run(
 ) -> None:
     st.header("Modeling")
 
-    X_train, y_train = train
-    X_test, y_test = test
+    X_train, y_train = sample_partition(*train)
+    X_test, y_test = sample_partition(*test)
 
     with st.container():
         st.subheader("1. Configurations")
@@ -56,19 +55,10 @@ def run(
         # handle options
         estimator = MODELS[model_name]()
 
-        # handle sampling data
-        all_data = st.checkbox("Use all data?", value=True)
-        if all_data:
-            display_note(
-                "Using all data could improve predictive power but slows down training time."
-            )
-        else:
-            display_header("Resampling", 5)
-            resampled = st.checkbox(
-                "Use a different sample each time?", value=False
-            )
-            X_train, y_train = sample_partition(X_train, y_train, resampled)
-            X_test, y_test = sample_partition(X_test, y_test, resampled)
+        display_note(
+            """To speed up processing time, only 1/5 of the data samples is used for training and scoring.
+            In practice, you might want to utilize all data available to achieve high performance scores"""
+        )
 
         # handle button
         clicked = st.button("Click to fit")
@@ -86,10 +76,8 @@ def run(
                 FeatureImportances(X_train, estimator)
 
 
-def sample_partition(X: pd.DataFrame, y: pd.Series, resampled: bool = False):
-    random_state = None if resampled else int(resampled)
-
-    X_sampled = X.sample(frac=1 / 3, replace=False, random_state=random_state)
+def sample_partition(X: pd.DataFrame, y: pd.Series):
+    X_sampled = X.sample(frac=1 / 5, replace=False, random_state=0)
     y_sampled = y[X_sampled.index]
 
     return X_sampled, y_sampled
@@ -139,6 +127,9 @@ def FeatureImportances(X_train: pd.DataFrame, estimator):
     # table
     styleit(st.table)(data=fi_styled)
 
+    with st.expander("NOTE: "):
+        display_content(MODELS_DIR / "featimp-note.txt")
+
     # graph
     x, y = fi.Importance, fi.index
     barchart = go.Bar(
@@ -158,6 +149,3 @@ def FeatureImportances(X_train: pd.DataFrame, estimator):
             yaxis_title="Variables",
         ),
     )
-
-    with st.expander("NOTE: "):
-        display_content(MODELS_DIR / "featimp-note.txt")

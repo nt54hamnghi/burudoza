@@ -42,8 +42,12 @@ def data_info(data: pd.DataFrame):
 
         # display shape
         st.write("Shape: ")
-        st.write(f"Training Set: `{data.shape}`")
-        st.write(f"Testing Set: `{(11573, 50)}`")
+        st.write(
+            f"Training Set: `{data.shape[0]}` samples (rows) `{data.shape[1]}` features (columns)"
+        )
+        st.write(
+            f"Testing Set: `{11573}` samples (rows) `{50}` features (columns)"
+        )
 
         # drop-down box for selecting feature to display description
         display_header("Feature Description", 4)
@@ -87,6 +91,7 @@ def load_data_description() -> pd.DataFrame:
 
 
 def feature_summary(feature_name: str, feature_data: pd.Series):
+    feature_data = feature_data.sample(frac=1 / 5, replace=False)
     info = feature_data.describe().to_dict()
     info["na count"] = feature_data.isna().sum()
     info["data type"] = feature_data.dtype

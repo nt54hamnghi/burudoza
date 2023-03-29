@@ -1,5 +1,4 @@
 from . import graph
-
 from .display import (
     display_content,
     display_header,
@@ -7,7 +6,6 @@ from .display import (
     display_note,
     styleit,
 )
-
 from .evaluate import evalutate, get_feature_importances
 from .graph import (
     BLUE_CMAP,
