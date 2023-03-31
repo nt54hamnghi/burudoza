@@ -73,8 +73,8 @@ def prepare(dataframe: pd.DataFrame, sample: bool = True) -> pd.DataFrame:
 
     if sample:
         display_note(
-            "This analysis use a random subset with 45,000 rows from the original data set."
+            "This analysis use a random subset with 30,000 rows from the original data set."
         )
-        return dataframe.sample(frac=0.125, replace=True)
+        return dataframe.sample(n=30_000)
 
     return dataframe

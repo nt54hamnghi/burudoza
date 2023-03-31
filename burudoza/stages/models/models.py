@@ -56,7 +56,7 @@ def run(
         estimator = MODELS[model_name]()
 
         display_note(
-            """To speed up processing time, only 1/5 of the data samples is used for training and scoring.
+            """To speed up processing time, only 1/8 of the data samples is used for training and scoring.
             In practice, you might want to utilize all data available to achieve high performance scores"""
         )
 
@@ -77,7 +77,7 @@ def run(
 
 
 def sample_partition(X: pd.DataFrame, y: pd.Series):
-    X_sampled = X.sample(frac=1 / 5, replace=False, random_state=0)
+    X_sampled = X.sample(frac=1 / 8, replace=False, random_state=0)
     y_sampled = y[X_sampled.index]
 
     return X_sampled, y_sampled
