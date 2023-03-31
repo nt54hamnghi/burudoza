@@ -47,12 +47,25 @@ export class BurudozaStack extends cdk.Stack {
 
 		const image = ecs.ContainerImage.fromDockerImageAsset(asset);
 
+		// const capacityProviderStrategy: ecs.CapacityProviderStrategy =
 		new ecsPatterns.ApplicationLoadBalancedFargateService(
 			this,
 			genid('fargateService'),
 			{
 				assignPublicIp: true,
 				cluster,
+				capacityProviderStrategies: [
+					{
+						capacityProvider: 'FARGATE_SPOT',
+						base: 1,
+						weight: 2,
+					},
+					{
+						capacityProvider: 'FARGATE',
+						base: 0,
+						weight: 1,
+					},
+				],
 				cpu: 2048, // 4 vCPU
 				taskImageOptions: {
 					image,
