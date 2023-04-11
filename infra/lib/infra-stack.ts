@@ -6,7 +6,10 @@ import * as ecs from 'aws-cdk-lib/aws-ecs';
 import * as ecsPatterns from 'aws-cdk-lib/aws-ecs-patterns';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import { Construct } from 'constructs';
+import * as dotenv from 'dotenv';
 import { join } from 'path';
+
+dotenv.config();
 
 function genid(service: string) {
 	const Service = service.charAt(0).toUpperCase() + service.slice(1);
@@ -24,13 +27,16 @@ export class BurudozaStack extends cdk.Stack {
 			route53.PublicHostedZone.fromPublicHostedZoneAttributes(
 				this,
 				genid('hostedZone'),
-				{ zoneName: domainName, hostedZoneId: 'Z034277728R677UN19XB1' }
+				{
+					zoneName: domainName,
+					hostedZoneId: process.env.HOSTED_ZONE_ID as string,
+				}
 			);
 
 		const certificate = acm.Certificate.fromCertificateArn(
 			this,
 			genid('certificate'),
-			process.env.ACM_ARN ?? ''
+			process.env.ACM_ARN as string
 		);
 
 		const asset = new DockerImageAsset(this, genid('dockerAsset'), {
